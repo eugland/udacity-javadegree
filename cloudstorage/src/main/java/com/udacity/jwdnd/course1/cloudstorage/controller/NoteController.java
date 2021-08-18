@@ -52,7 +52,7 @@ public class NoteController {
 
     @GetMapping("/del/{id}")
     public String deleteNote(@PathVariable Integer id, Model model) {
-        // System.out.println("deleting Note here");
+         System.out.println("deleting Note here");
         Integer check = noteService.delete(id);
         if (check <= 0 ) {
             model.addAttribute("failed", true);

@@ -27,6 +27,11 @@ public class Credential {
         cr.setDecryptedPass(decryptedPass);
         return cr;
     }
+    public static Credential fromWeb(Integer credentialid, String url, String username, String encrpted) {
+        Credential cr = new Credential(credentialid, url, username, null, encrpted, null);
+        return cr;
+    }
+
 
     public Credential(Integer credentialid, String url, String username, String key, String password, Integer userid) {
         this.credentialid = credentialid;

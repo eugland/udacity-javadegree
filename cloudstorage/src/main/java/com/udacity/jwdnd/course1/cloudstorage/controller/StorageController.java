@@ -43,14 +43,15 @@ public class StorageController {
                 null // basically bytes but will be added in inputstream
         );
         if (storageService.fileExists(toUpload)) {
-            model.addAttribute("failed", "shit already exists, sorry man");
+            model.addAttribute("failed", "file already exists, sorry");
+            return "result";
         }
         try {
             toUpload.setFiledata(file.getBytes());
             storageService.fileStore(toUpload);
-            model.addAttribute("success", true);
+            model.addAttribute("success", "your file {" + toUpload.getFilename() + "} has been added");
         } catch (IOException e) {
-            model.addAttribute("failed", "shit cant stored man");
+            model.addAttribute("failed", "file cant be stored ");
             // e.printStackTrace();
         }
         return "result";
@@ -70,11 +71,11 @@ public class StorageController {
 
     @GetMapping("/del/{fileId}")
     public String deleteMapping(@PathVariable Integer fileId, Model model) {
-        int res = storageService.removeFile(fileId).intValue();
+        int res = storageService.removeFile(fileId);
         if (res <= 0){
             model.addAttribute("failed", "Your file id={" + fileId + "} cannot be deleted");
         } else {
-            model.addAttribute("Your file id={" + fileId + "} has been deleted");
+            model.addAttribute("success", "Your file id={" + fileId + "} has been deleted");
         }
         return "result";
     }

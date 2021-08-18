@@ -60,17 +60,16 @@ public class AccountTest {
     }
 
     @Test
-    public void unauthRedirectToLoginTest() throws InterruptedException {
+    public void unauthRedirectToLoginTest() {
         driver.get(HOST + port + "/home");
         Assertions.assertEquals("Login", driver.getTitle());
     }
 
     @Test
-    public void nonExistingUserLoginFailure() throws InterruptedException {
+    public void nonExistingUserLoginFailure() {
         driver.get(HOST + port + "/login");
         Optional<String> error = tryLogin("xd", "td");
         System.out.println(error);
-        Thread.sleep(1000);
         Assertions.assertEquals("Invalid username or password", error.get());
     }
 
@@ -92,7 +91,7 @@ public class AccountTest {
     }
 
     @Test
-    public void signOut() throws Exception {
+    public void signOut() {
         Optional<String> error = tryLogin("user1", "pass");
         Assertions.assertTrue(error.isEmpty());
 
@@ -100,6 +99,5 @@ public class AccountTest {
         WebElement webElement = driver.findElement(By.id("btnLogout"));
         webElement.click();
         Assertions.assertEquals("Login", driver.getTitle());
-        Thread.sleep(1000);
     }
 }

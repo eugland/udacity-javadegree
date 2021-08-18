@@ -101,7 +101,7 @@
                                                 th:href="${'/notes/del/' + note.getNoteid()}"
                                                 th:method="delete">Delete</a>
                                         </td>
-                                        <td><span id="elNoteID" th:text="${note.getNoteid()}" style="font-size: 0px;">0</span>
+                                        <td><span id="elNoteID" th:text="${note.getNoteid()}" style="font-size: 1px;">0</span>
                                             <span id="elNoteTitle" th:text="${note.getNotetitle()}">Example Note Title</span></td>
                                         <td><span id="elNoteDesc" th:text="${note.getNotedescription()}">Example Note Description </span></td>
                                     </tr>
@@ -176,11 +176,11 @@
                                             >Delete</a>
                                     </td>
                                     <th scope="row">
-                                        <span id="credId" th:text="${credential.getCredentialid()}" style="font-size: 0px;"> 0 </span>
+                                        <span id="credId" th:text="${credential.getCredentialid()}" style="font-size: 1px;"> 0 </span>
                                         <span id="credUrl"  th:text="${credential.url}"></span>
                                     </th>
                                     <td> <span id="credUsername" th:text="${credential.username}"></span></td>
-                                    <td> <span id="credPass" th:text="${credential.decryptedPass}"></span></td>
+                                    <td> <span id="credPass" th:text="${credential.getPassword()}"></span></td>
                                 </tr>
                                 </tbody>
                             </table>

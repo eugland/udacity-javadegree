@@ -119,7 +119,7 @@ public class HomeForm {
         List<WebElement> allCredentials = driver.findElements(By.className("credentialsList"));
         System.out.println(allCredentials);
         List<Credential> credentials = allCredentials.parallelStream().map(e->
-                Credential.buildPartialCredential(
+                Credential.fromWeb(
                         Integer.valueOf(e.findElement(By.id("credId")).getText()),
                         e.findElement(By.id("credUrl")).getText(),
                         e.findElement(By.id("credUsername")).getText(),
@@ -132,8 +132,7 @@ public class HomeForm {
     public boolean credisIn(Credential cr, List<Credential> creds) {
         return creds.parallelStream().anyMatch(c ->
                 c.getUrl().equals(cr.getUrl()) &&
-                        c.getUsername().equals(cr.getUsername()) &&
-                        c.getDecryptedPass().equals(cr.getDecryptedPass())
+                        c.getUsername().equals(cr.getUsername())
         );
     }
 

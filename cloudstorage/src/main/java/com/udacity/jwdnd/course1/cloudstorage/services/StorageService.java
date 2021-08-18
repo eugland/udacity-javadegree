@@ -28,7 +28,8 @@ public class StorageService {
     }
 
     public Boolean fileExists(File file) {
-        return fileMapper.getFile(file.getFileId()) != null;
+        return fileMapper.getFile(file.getFileId()) != null ||
+                fileMapper.getFileByName(file.getFilename()) != null;
     }
 
     public Integer fileStore(File file) {
