@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class AccountTest {
-    private String HOST = "http://localhost:";
+    private final String HOST = "http://localhost:";
 
     @LocalServerPort
     private int port;

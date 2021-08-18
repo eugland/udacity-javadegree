@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @Service
 public class AuthenticationService implements AuthenticationProvider {
-    private Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
+    private final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
     private final UserMapper userMapper;
     private final HashService hashService;
 

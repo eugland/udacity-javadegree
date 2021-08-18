@@ -43,7 +43,7 @@ public class HomeForm {
     @FindBy(id = "nav-credentials-tab")
     private WebElement credentialTabButton;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public HomeForm(WebDriver driver) {
         PageFactory.initElements(driver, this);
